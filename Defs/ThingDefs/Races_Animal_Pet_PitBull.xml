@@ -1,52 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef Name="BasePawn" Abstract="True">
-    <thingClass>Pawn</thingClass>
-    <category>Pawn</category>
-    <selectable>true</selectable>
-    <tickerType>Normal</tickerType>
-    <altitudeLayer>Pawn</altitudeLayer>
-    <useHitPoints>false</useHitPoints>
-    <hasTooltip>true</hasTooltip>
-    <soundImpactDefault>BulletImpactFlesh</soundImpactDefault>
-    <inspectorTabs>
-      <li>ITab_Pawn_Health</li>
-      <li>ITab_Pawn_Needs</li>
-      <li>ITab_Pawn_Character</li>
-      <li>ITab_Pawn_Training</li>
-      <li>ITab_Pawn_Gear</li>
-      <li>ITab_Pawn_Guest</li>
-      <li>ITab_Pawn_Prisoner</li>
-    </inspectorTabs>
-    <comps>
-      <li>
-        <compClass>CompAttachBase</compClass>
-      </li>
-    </comps>
-    <drawGUIOverlay>true</drawGUIOverlay>
-  </ThingDef>
-
-  <ThingDef ParentName="BasePawn" Name="BaseAnimal" Abstract="True">
-    <statBases>
-      <Flammability>1.0</Flammability>
-      <LeatherAmount>20</LeatherAmount>
-    </statBases>
-    <race>
-      <thinkTree>Animal</thinkTree>
-      <minFoodPreferability>Plant</minFoodPreferability>
-      <isFlesh>true</isFlesh>
-      <hasGenders>true</hasGenders>
-      <nameGenerator>NamerAnimalGeneric</nameGenerator>
-      <manhunterOnDamageChance>0.0125</manhunterOnDamageChance>
-      <nameOnNuzzleChance>0.5</nameOnNuzzleChance>
-      <hediffGiverSets>
-        <li>OrganicStandard</li>
-      </hediffGiverSets>
-    </race>
-  </ThingDef>
-  
-  <ThingDef ParentName="BaseAnimal">
+  <ThingDef ParentName="AnimalThingBase">
     <defName>PitBull</defName>
     <label>pit bull</label>
     <description>Pit bulls were created by breeding bulldogs and terriers together to produce a dog that combined the gameness and agility of the terrier with the strength of the bulldog.</description>
@@ -85,7 +40,7 @@
       <baseBodySize>0.4</baseBodySize>
       <baseHungerRate>0.5</baseHungerRate>
       <baseHealthScale>1.05</baseHealthScale>
-      <diet>Omnivorous</diet>
+      <foodType>OmnivoreAnimal</foodType>
       <leatherColor>(82,51,25)</leatherColor>
       <leatherLabel>pit bull fur</leatherLabel>
       <leatherInsulation>1.0</leatherInsulation>
@@ -93,7 +48,7 @@
       <nameOnTameChance>1</nameOnTameChance>
       <trainableIntelligence>Advanced</trainableIntelligence>
       <wildness>0</wildness>
-      <nuzzleChancePerHour>0.1</nuzzleChancePerHour>
+      <nuzzleMtbHours>10</nuzzleMtbHours>
       <litterSizeCurve>
         <points>
           <li>(0.5, 0)</li>
@@ -117,7 +72,7 @@
           <def>AnimalAdult</def>
           <minAge>0.8</minAge>
           <soundWounded>Pawn_Dog_Injured</soundWounded>
-          <soundDeath>Pawn_Dog_Dead</soundDeath>
+          <soundDeath>Pawn_Dog_Death</soundDeath>
           <soundCall>Pawn_Dog_Call</soundCall>
           <soundAngry>Pawn_Dog_Angry</soundAngry>
         </li>
